@@ -2,8 +2,6 @@
 // With each success, the player earns more points. The points are 
 // earned in this sequence:
 
-const { builtinModules } = require("module");
-
 // 0
 // 15
 // 30
@@ -23,10 +21,16 @@ const { builtinModules } = require("module");
 // The 'deuce' case should be handled
 // After a game has been won, a winner must be determined
 // The current score of either player should be available at any point during the game
-const Game = () => {
-    let player1Score = 0;
-    let player2Score = 0;
-    function 
+class Game {
+    constructor(player1 = 0, player2 = 0) {
+        this.player1 = [player1, 15, 30, 40, 45]
+        this.player2 = [player2, 15, 30, 40, 45];
+    }
 
+    get player1Points () { return this.player1 } 
+    get player2Points () { return this.player2 } 
+    
+    player1Score () { this.player1 = (this.player1 + 15) }
+    player2Score () { this.player2 = (this.player2 + 15) }
 }
 module.exports = Game;
